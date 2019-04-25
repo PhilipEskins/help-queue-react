@@ -8,7 +8,6 @@ function Ticket(props) {
 
       `}</style>
       <h3>{props.location} - {props.names}</h3>
-      <p><em>{props.formattedWaitTime}</em></p>
       <p>{props.issue}</p>
       <hr/>
     </div>;

@@ -22,7 +22,6 @@ class App extends React.Component {
 
   handleChangingSelectedTicket(ticket) {
     this.setState({selectedTicket: ticket});
-    console.log('The selected ticket is now: ' +this.state.selectedTicket.names);
   }
 
   handleAddingNewTicketToList(newTicket) {
@@ -58,7 +57,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path = '/' render = {()=><TicketList ticketList = {this.state.masterTicketList} />} />
           <Route path = '/newticket' render = {()=><NewTicketControl onNewTicketCreation = {this.handleAddingNewTicketToList} />} />
-          <Route path = '/admin' render = {(props)=><Admin ticketList = {this.state.masterTicketList} currentRouterPath = {props.location.pathname} onTicketSelection={this.handleChangingSelectedTicket}/>}/>
+          <Route path = '/admin' render = {(props)=><Admin ticketList = {this.state.masterTicketList} currentRouterPath = {props.location.pathname} onTicketSelection = {this.handleChangingSelectedTicket} selectedTicket = {this.state.selectedTicket}/>}/>
           <Route component = {Error404}/>
         </Switch>
       </div>
